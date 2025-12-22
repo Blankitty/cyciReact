@@ -9,6 +9,8 @@ function Main() {
       <Link to="/Calc">Calc로 이동</Link>
       <br/>
       <Link to="/Dark">Dark로 이동</Link>
+      <br/>
+      <Link to="/Grades">Grades로 이동</Link>
     </>
   )
 }
