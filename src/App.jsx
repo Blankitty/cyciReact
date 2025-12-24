@@ -9,6 +9,9 @@ import StudentInfo from './page/StudentInfo.jsx';
 
 import Axios1 from './page/axios/Axios보내기.jsx';
 
+import Login from './page/Member/Login.jsx';
+import Register from './page/Member/Register.jsx';
+
 function App() {
 
 
@@ -21,9 +24,10 @@ function App() {
           <Route path={"/Dark"} element={<Dark />} />
           <Route path={"/StudentInfo"} element={<StudentInfo />} />
           <Route path={"/Grades"} element={<Grades />} />
-          
           <Route path={"/axios1"} element={<Axios1 />} />
 
+          <Route path={"/login"} element={<Login />} />
+          <Route path={"/register"} element={<Register />} />
         </Routes>
       </BrowserRouter>
     </>

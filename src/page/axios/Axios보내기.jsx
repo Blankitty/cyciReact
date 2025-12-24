@@ -3,6 +3,8 @@ import { useState } from 'react';
 
 export default function Study() {
 
+    const [리스트, set리스트] = useState([]);
+
     function test1() {
         axios.get('http://localhost:8080/test1')
         .then(res => {
@@ -32,6 +34,21 @@ export default function Study() {
         axios.get('http://localhost:8080/data3', {params:{'num1': 10, 'num2' : 5}})
         .then(res => {
             console.log(res);
+        })
+    }
+
+
+    function boardList() {
+        axios.get('http://localhost:8080/api/board/list')
+        .then(res => {
+            console.log(res);
+            if(res.status !== 200) {
+                console.log('error')
+            }
+            const list = res.data;
+            console.log(list);
+            set리스트(list);
+
         })
     }
 
@@ -75,6 +92,17 @@ export default function Study() {
 
             <input type="button" value="axios보내기5"
                 onClick={res1} />
+
+            <h1>계시판 불러오기</h1>
+            <input type="button" value="리스트 불러오기" 
+                onClick={boardList} />
+                {리스트.map(item => (
+                    <div key={item.boardIdx}>
+                        <span>{item.title}</span>
+                        <span>{item.userId}</span>
+                        <span>{item.createAt}</span>
+                    </div>
+                ))}
         </div>
     )
 }
